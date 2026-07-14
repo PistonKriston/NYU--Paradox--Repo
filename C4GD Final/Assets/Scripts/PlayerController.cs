@@ -25,13 +25,16 @@ public class PlayerController : MonoBehaviour
 
     public static PlayerController instance;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         instance = this;
-        
     }
 
+    private void Start()
+    {
+        transform.position = GameManager.instance.playerPosition;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -109,7 +112,6 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             next_vel_y = jump_speed;
-            Debug.Log("LEFT" + isLeftWall + " RIGHT" + isRightWall);
         }
         
             

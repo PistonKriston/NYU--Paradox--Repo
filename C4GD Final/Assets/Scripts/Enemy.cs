@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
                 attacking = true;
                 attackTimer = -1;
                 animator.SetBool("attack", true);
-                collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+                Attack(collision.gameObject);
             }
         }
     }
@@ -96,5 +96,11 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("attack", false);
             }
         }
+    }
+
+    private void Attack(GameObject entity)
+    {
+        animator.Play("bite");
+        entity.GetComponent<Health>().TakeDamage(damage);
     }
 }
