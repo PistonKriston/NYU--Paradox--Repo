@@ -38,7 +38,6 @@ public class TimeTravel : MonoBehaviour
                 if (isEnemy)
                 {
                     gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                    print(gameObject.GetComponent<Rigidbody2D>().bodyType);
                 }
                 else
                 {

@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     private Rigidbody2D rb;
-    private Collider2D c2d;
     private Animator animator;
     public float speed = 1f;
 
@@ -19,6 +18,8 @@ public class Enemy : MonoBehaviour
 
     private float VelocityX;
     private float VelocityY;
+
+    public int damage = 1;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,13 +48,7 @@ public class Enemy : MonoBehaviour
                 attacking = true;
                 attackTimer = -1;
                 animator.SetBool("attack", true);
-            }
-        }
-        else if (collision.gameObject.layer == 3)
-        {
-            if (flying && !attacking)
-            {
-                c2d.isTrigger = true;
+                collision.gameObject.GetComponent<Health>().TakeDamage(damage);
             }
         }
     }
@@ -64,10 +59,6 @@ public class Enemy : MonoBehaviour
         {
             attackTimer = 0;
             
-        }
-        else if (collision.gameObject.layer == 3)
-        {
-            c2d.isTrigger = false;
         }
     }
 

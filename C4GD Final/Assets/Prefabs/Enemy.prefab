@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 6753729109677140266}
   - component: {fileID: 8892238307313370133}
   - component: {fileID: 9095034590729023024}
+  - component: {fileID: 220445307855321269}
+  - component: {fileID: 4592996771331270842}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -177,6 +179,7 @@ MonoBehaviour:
   attackTimer: 0
   attackDuration: 2
   flying: 0
+  damage: 1
 --- !u!61 &8892238307313370133
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -237,3 +240,38 @@ MonoBehaviour:
   inPast: 0
   isEnemy: 1
   distanceBetweenLevels: 100
+--- !u!95 &220445307855321269
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6199934136905399922}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4592996771331270842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6199934136905399922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da96c4a07234f5b449f101ba2c363711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 10
+  currentHP: 10
