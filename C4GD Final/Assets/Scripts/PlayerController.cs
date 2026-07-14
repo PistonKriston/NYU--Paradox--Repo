@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         instance = this;
+        
     }
 
     // Update is called once per frame

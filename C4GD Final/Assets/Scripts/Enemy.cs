@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
 
     private float VelocityX;
     private float VelocityY;
+    public Vector2 direction;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,6 +32,16 @@ public class Enemy : MonoBehaviour
     {
         FollowPlayer();
         AttackTimer();
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+            
+        }
+        else if (direction.x >= 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+           
+        }
     }
 
     private void FixedUpdate()
@@ -73,7 +84,7 @@ public class Enemy : MonoBehaviour
 
     private void FollowPlayer()
     {
-        Vector2 direction = (PlayerController.instance.transform.position - transform.position).normalized;
+        direction = (PlayerController.instance.transform.position - transform.position).normalized;
         VelocityX = 0;
         if (!attacking)
         {
@@ -102,4 +113,5 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+     
 }
