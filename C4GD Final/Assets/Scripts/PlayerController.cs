@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool facingRight;
 
     public static PlayerController instance;
+    public bool isDamaged;
     // Start is called before the first frame update
     void Start()
     {
