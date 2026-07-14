@@ -20,11 +20,18 @@ public class Enemy : MonoBehaviour
     private float VelocityY;
 
     public int damage = 1;
+    Vector2 direction;
+    public GameObject collisionObject;
+    public bool damaging = false;
+    public float damageTimer;
+    public GameObject player;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         attackTimer = attackDuration;
+
     }
 
     // Update is called once per frame
@@ -32,6 +39,31 @@ public class Enemy : MonoBehaviour
     {
         FollowPlayer();
         AttackTimer();
+
+        
+         if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+            
+        }
+        else if (direction.x >= 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+           
+        }
+        /*
+        if (damaging == true)
+        {
+            collisionObject.GetComponent<Health>().TakeDamage(damage);
+            damageTimer = 10000f;
+        }
+        if (damageTimer>0){
+            damageTimer-=Time.deltaTime;
+        }
+        else{
+            damageTimer=0;
+        }
+        */
     }
 
     private void FixedUpdate()
@@ -48,7 +80,10 @@ public class Enemy : MonoBehaviour
                 attacking = true;
                 attackTimer = -1;
                 animator.SetBool("attack", true);
-                collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+                collisionObject = collision.gameObject;
+                
+                InvokeRepeating("Attack", 1f, 1f);
+
             }
         }
     }
@@ -58,13 +93,13 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             attackTimer = 0;
-            
+            damaging = false;
         }
     }
 
     private void FollowPlayer()
     {
-        Vector2 direction = (PlayerController.instance.transform.position - transform.position).normalized;
+        direction = (PlayerController.instance.transform.position - transform.position).normalized;
         VelocityX = 0;
         if (!attacking)
         {
@@ -92,5 +127,10 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("attack", false);
             }
         }
+    }
+    public void Attack()
+    {
+        
+      collisionObject.GetComponent<Health>().TakeDamage(damage);
     }
 }
