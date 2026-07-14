@@ -34,9 +34,15 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        transform.position = GameManager.instance.playerPosition;
+        LoadGame();
     }
     // Update is called once per frame
+
+    private void LoadGame()
+    {
+        transform.position = GameManager.instance.playerPosition;
+        gameObject.GetComponent<TimeTravel>().inPast = GameManager.instance.playerInPast;
+    }
     void Update()
     {
         playerinput = Input.GetAxis("Horizontal");

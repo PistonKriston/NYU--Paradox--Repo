@@ -43,10 +43,4 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-    public void LoadGame()
-    {
-        PlayerController.instance.transform.position = playerPosition;
-        PlayerController.instance.GetComponent<TimeTravel>().inPast = playerInPast;
-    }
 }

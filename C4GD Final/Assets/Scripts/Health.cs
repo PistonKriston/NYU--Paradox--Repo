@@ -6,7 +6,6 @@ public class Health : MonoBehaviour
 {
     public float maxHP = 10f;
     public float currentHP = 10f;
-    public GameObject DeathScreen;
     // Start is called before the first frame update
     void Start()
     {

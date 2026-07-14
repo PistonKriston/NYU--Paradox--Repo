@@ -2210,6 +2210,7 @@ MonoBehaviour:
     m_Bits: 0
   groundCheckRadius: 0.2
   no_input: 0
+  isDamaged: 0
 --- !u!50 &716342980
 Rigidbody2D:
   serializedVersion: 4
@@ -2381,6 +2382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 80000
   currentHP: 2
+  DeathScreen: {fileID: 1190493386}
 --- !u!114 &716342986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4732,6 +4734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {x: 0, y: 0, z: 0}
+  playerInPast: 0
 --- !u!1001 &285101649042120768
 PrefabInstance:
   m_ObjectHideFlags: 0
