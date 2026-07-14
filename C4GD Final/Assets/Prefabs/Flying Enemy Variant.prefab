@@ -34,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716023662480933604, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5716023662480933604, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6199934136905399922, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_Name
@@ -54,6 +54,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6753729109677140266, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: attackDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7742141946067852692, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7742141946067852692, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7742141946067852692, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
@@ -98,11 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8892238307313370133, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8892238307313370133, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9095034590729023024, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: isEnemy
