@@ -111,16 +111,21 @@ public class PlayerController : MonoBehaviour
             
         if (isRightWall && Input.GetKeyDown(KeyCode.Space))
         {
-            next_vel_y = jump_speed * 0.4f;
+            next_vel_y = jump_speed * 0.7f;
             if (facingRight==true)
             {
                 transform.position = new Vector2(transform.position.x - 0.1f, transform.position.y);
                 rb2d.AddForce(transform.right * -600f);
+                transform.localScale = new Vector3(-1, 1, 1);
+                facingRight = false;
+
             }
             else if (facingRight!=true)
             {
                 transform.position = new Vector2(transform.position.x + 0.1f, transform.position.y);
                 rb2d.AddForce(transform.right * 600f);
+                transform.localScale = new Vector3(1, 1, 1);
+                facingRight = true;
             }
             no_input = 0.3f;
             Debug.Log("LEFT" + isLeftWall + " RIGHT" + isRightWall);
