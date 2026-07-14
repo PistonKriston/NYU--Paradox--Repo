@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyTurnAround : MonoBehaviour
 {
     public Transform left_check_point;
-    public Transform right_check_point;
+    
     public LayerMask BothLayer;
     public float groundCheckRadius = 0.01f;
 
