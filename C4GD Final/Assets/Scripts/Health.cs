@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     public float maxHP = 10f;
     public float currentHP = 10f;
+    public GameObject DeathScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +16,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            TakeDamage(currentHP);
-        }
+        
     }
     public void TakeDamage(float amt)
     {
@@ -27,6 +25,7 @@ public class Health : MonoBehaviour
         if (currentHP <= 0)
         {
             Destroy(gameObject);
+            
         }
     }
 }
