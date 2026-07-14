@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     private float VelocityX;
     private float VelocityY;
 
+
     public float damage = 1;
     Vector2 direction;
     public GameObject collisionObject;
@@ -36,6 +37,8 @@ public class Enemy : MonoBehaviour
         }
         GetComponent<TimeTravel>().inPast = GameManager.instance.playerInPast;
     }
+    public float facing = 1;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,44 +53,60 @@ public class Enemy : MonoBehaviour
         FollowPlayer();
         AttackTimer();
 
-        
-         if (direction.x < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-            
-        }
-        else if (direction.x >= 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-           
-        }
-        
         if (damaging == true)
         {
             if (damageTimer <= 0)
             {
-            healthBar.fillAmount -= damage/10;
-            collisionObject.GetComponent<Health>().TakeDamage(damage);
-            damageTimer = 1f;
-            
+                healthBar.fillAmount -= damage / 10;
+                collisionObject.GetComponent<Health>().TakeDamage(damage);
+                damageTimer = 1f;
+
             }
-           
-            if (damageTimer>0)
+
+            if (damageTimer > 0)
             {
-            damageTimer-=Time.deltaTime;
+                damageTimer -= Time.deltaTime;
             }
             else
             {
-            damageTimer=0;
+                damageTimer = 0;
             }
         }
-      
-        
+
+
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(VelocityX, VelocityY);
+        FollowPlayer();
+        if (flying == true)
+        {
+            if (facing == -1)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                rb.velocity = new Vector2(direction.x, VelocityY);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                rb.velocity = new Vector2(direction.x, VelocityY);
+            }
+        }
+        else
+        {
+            if (facing == -1)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                rb.velocity = new Vector2(-speed, VelocityY);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                rb.velocity = new Vector2(speed, VelocityY);
+            }
+        }
+        
+        Debug.Log(facing);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -114,12 +133,13 @@ public class Enemy : MonoBehaviour
     }
 
 
-    private void OnTriggerExit2D(Collider2D collision) {
+    private void OnTriggerExit2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("Player"))
         {
             attackTimer = 0;
             damaging = false;
-           
+
         }
     }
 
@@ -127,19 +147,35 @@ public class Enemy : MonoBehaviour
     {
         direction = (PlayerController.instance.transform.position - transform.position).normalized;
         VelocityX = 0;
-        if (!attacking)
+
+        if (flying != true)
         {
-            VelocityX = direction.x * speed;
+            VelocityX = speed * facing;
+            if (attacking)
+            {
+                VelocityY = 0;
+            }
+            direction = Vector3.zero;
+
+
         }
-        VelocityY = rb.velocity.y;
-        if (attacking)
+        else
         {
-            VelocityY = 0;
+            if (!attacking)
+            {
+                VelocityX = direction.x * speed;
+            }
+            VelocityY = rb.velocity.y;
+            if (attacking)
+            {
+                VelocityY = 0;
+            }
+            else if (flying)
+            {
+                VelocityY = direction.y * speed;
+            }
         }
-        else if (flying)
-        {
-            VelocityY = direction.y * speed;
-        }
+
     }
 
     private void AttackTimer()
@@ -156,7 +192,7 @@ public class Enemy : MonoBehaviour
     }
     public void Attack()
     {
-        
-      collisionObject.GetComponent<Health>().TakeDamage(damage);
+
+        collisionObject.GetComponent<Health>().TakeDamage(damage);
     }
 }
