@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Transform WallCheckPointRight;
     public LayerMask GroundLayer;
     public LayerMask WallLayer;
+    public LayerMask BothLayer;
     public float groundCheckRadius = 0.2f;
 
     public float no_input;
@@ -40,6 +41,12 @@ public class PlayerController : MonoBehaviour
         bool isGrounded = CheckGrounded();
         bool isLeftWall = CheckWallLeft();
         bool isRightWall = CheckWallRight();
+
+        if (isGrounded)
+        {
+            isLeftWall = false;
+            isRightWall = false;
+        }
         if (rb2d.velocity.x > max_speed || rb2d.velocity.x < -max_speed)
         {
             next_vel_x = rb2d.velocity.x * 0.99f;
@@ -75,16 +82,20 @@ public class PlayerController : MonoBehaviour
             }
             
         }
-        if (playerinput < 0)
+        if (playerinput != 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            facingRight = false;
+            if (playerinput < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                facingRight = false;
+            }
+            else if (playerinput >= 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                facingRight = true;
+            }
         }
-        else if (playerinput >= 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-            facingRight = true;
-        }
+        
 
         if (no_input <= 0)
         {
@@ -104,14 +115,21 @@ public class PlayerController : MonoBehaviour
             
         if (isRightWall && Input.GetKeyDown(KeyCode.Space))
         {
-            next_vel_y = jump_speed * 0.4f;
-            if (playerinput > 0)
+            next_vel_y = jump_speed * 0.7f;
+            if (facingRight==true)
             {
+                transform.position = new Vector2(transform.position.x - 0.1f, transform.position.y);
                 rb2d.AddForce(transform.right * -600f);
+                transform.localScale = new Vector3(-1, 1, 1);
+                facingRight = false;
+
             }
-            else if (playerinput < 0)
+            else if (facingRight!=true)
             {
+                transform.position = new Vector2(transform.position.x + 0.1f, transform.position.y);
                 rb2d.AddForce(transform.right * 600f);
+                transform.localScale = new Vector3(1, 1, 1);
+                facingRight = true;
             }
             no_input = 0.3f;
             Debug.Log("LEFT" + isLeftWall + " RIGHT" + isRightWall);
@@ -131,15 +149,49 @@ public class PlayerController : MonoBehaviour
 
     bool CheckGrounded()
     {
-        return Physics2D.OverlapCircle(GroundCheckPoint.position, groundCheckRadius, GroundLayer);
+        if (Physics2D.OverlapCircle(GroundCheckPoint.position, groundCheckRadius, GroundLayer))
+        {
+            return true;
+        }
+        else if (Physics2D.OverlapCircle(GroundCheckPoint.position, groundCheckRadius, BothLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
     }
     bool CheckWallLeft()
     {
-        return Physics2D.OverlapCircle(WallCheckPointLeft.position, groundCheckRadius, WallLayer);
+        if (Physics2D.OverlapCircle(WallCheckPointLeft.position, groundCheckRadius, WallLayer))
+        {
+            return true;
+        }
+        else if (Physics2D.OverlapCircle(WallCheckPointLeft.position, groundCheckRadius, BothLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     bool CheckWallRight()
     {
-        return Physics2D.OverlapCircle(WallCheckPointRight.position, groundCheckRadius, WallLayer);
+        if (Physics2D.OverlapCircle(WallCheckPointRight.position, groundCheckRadius, WallLayer))
+        {
+            return true;
+        }
+        else if (Physics2D.OverlapCircle(WallCheckPointRight.position, groundCheckRadius, BothLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
