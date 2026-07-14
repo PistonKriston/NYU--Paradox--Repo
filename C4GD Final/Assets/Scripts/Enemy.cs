@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         attackTimer = attackDuration;
+        GetComponent<TimeTravel>().inPast = GameManager.instance.playerInPast;
 
     }
 
