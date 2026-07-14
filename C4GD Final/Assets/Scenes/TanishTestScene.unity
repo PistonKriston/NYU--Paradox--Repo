@@ -874,6 +874,7 @@ MonoBehaviour:
   controllsButton: {fileID: 1645083186}
   mainMenuButton: {fileID: 1579556295}
   BackToGame: {fileID: 627685864}
+  playerUI: {fileID: 0}
 --- !u!114 &159716742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2210,6 +2211,7 @@ MonoBehaviour:
     m_Bits: 0
   groundCheckRadius: 0.2
   no_input: 0
+  facingRight: 0
   isDamaged: 0
 --- !u!50 &716342980
 Rigidbody2D:
@@ -2382,7 +2384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 80000
   currentHP: 2
-  DeathScreen: {fileID: 1190493386}
+  DeathScreen: {fileID: 0}
 --- !u!114 &716342986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2429,6 +2431,14 @@ PrefabInstance:
       propertyPath: attackDuration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5521277249038702116, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: flying
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521277249038702116, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 166264593}
     - target: {fileID: 9114837397773797792, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.58
@@ -2621,6 +2631,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2832689573530615498, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 166264593}
     - target: {fileID: 4836017915139597153, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -2689,7 +2703,8 @@ PrefabInstance:
       propertyPath: isEnemy
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6753729109677140266, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

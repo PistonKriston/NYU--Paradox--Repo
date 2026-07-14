@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: isEnemy
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9095034590729023024, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: isGroundedEnemy
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6753729109677140266, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
     m_RemovedGameObjects: []
@@ -124,6 +128,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6199934136905399922, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6239206905216022545}
+    - targetCorrespondingSourceObject: {fileID: 6199934136905399922, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5521277249038702116}
   m_SourcePrefab: {fileID: 100100000, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
 --- !u!1 &4829374448242403910 stripped
 GameObject:
@@ -151,3 +158,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5521277249038702116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4829374448242403910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82fb895df8d17874abeb2028945d3fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  attackDuration: 2
+  damage: 1
+  flying: 1
+  facing: 1
+  collisionObject: {fileID: 0}
+  damaging: 0
+  damageTimer: 0
+  healthBar: {fileID: 0}

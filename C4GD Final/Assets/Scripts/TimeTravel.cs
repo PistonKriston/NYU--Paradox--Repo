@@ -6,7 +6,7 @@ public class TimeTravel : MonoBehaviour
 {
     
     public bool inPast;
-    public bool isEnemy;
+    public bool isGroundedEnemy;
     public float distanceBetweenLevels = 100f;
     // Start is called before the first frame update
     void Awake()
@@ -24,7 +24,7 @@ public class TimeTravel : MonoBehaviour
         {
             if (inPast)
             {
-                if (isEnemy)
+                if (isGroundedEnemy)
                 {
                     gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 }
@@ -35,7 +35,7 @@ public class TimeTravel : MonoBehaviour
             }
             else
             {
-                if (isEnemy)
+                if (isGroundedEnemy)
                 {
                     gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                 }
@@ -47,7 +47,7 @@ public class TimeTravel : MonoBehaviour
             inPast = !inPast;
         }
 
-        if (isEnemy && inPast)
+        if (isGroundedEnemy && inPast)
         {
             gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
