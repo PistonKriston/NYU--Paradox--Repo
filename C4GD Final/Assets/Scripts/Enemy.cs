@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -30,7 +31,11 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
     void Start()
     {
-
+        for (int i = 0; i < GameManager.instance.enemyPositions.Count; i++)
+        {
+            print("bugged line of code");
+        }
+        GetComponent<TimeTravel>().inPast = GameManager.instance.playerInPast;
     }
     public float facing = 1;
 
@@ -39,7 +44,6 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         attackTimer = attackDuration;
-        GetComponent<TimeTravel>().inPast = GameManager.instance.playerInPast;
 
     }
 
@@ -48,25 +52,6 @@ public class Enemy : MonoBehaviour
     {
         FollowPlayer();
         AttackTimer();
-
-        if (flying)
-        {
-            if (direction.x < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-
-            }
-            else if (direction.x >= 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-
-            }
-        }
-        else
-        {
-            direction= Vector3.zero;
-        }
-        
 
         if (damaging == true)
         {
@@ -93,17 +78,34 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-        if (facing == -1)
+        FollowPlayer();
+        if (flying == true)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            rb.velocity = new Vector2(-speed, VelocityY);
+            if (facing == -1)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                rb.velocity = new Vector2(direction.x, VelocityY);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                rb.velocity = new Vector2(direction.x, VelocityY);
+            }
         }
         else
         {
-            transform.localScale = new Vector3(1, 1, 1);
-            rb.velocity = new Vector2(speed, VelocityY);
+            if (facing == -1)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                rb.velocity = new Vector2(-speed, VelocityY);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                rb.velocity = new Vector2(speed, VelocityY);
+            }
         }
+        
         Debug.Log(facing);
     }
 
