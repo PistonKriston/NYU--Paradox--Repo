@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -30,7 +31,11 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
     void Start()
     {
-
+        for (int i = 0; i < GameManager.instance.enemyPositions.Count; i++)
+        {
+            print("bugged line of code");
+        }
+        GetComponent<TimeTravel>().inPast = GameManager.instance.playerInPast;
     }
     public float facing = 1;
 
@@ -39,7 +44,6 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         attackTimer = attackDuration;
-        GetComponent<TimeTravel>().inPast = GameManager.instance.playerInPast;
 
     }
 
