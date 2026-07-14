@@ -16,17 +16,40 @@ public class Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKey("w") && Input.GetMouseButtonDown(0))
+            {
+                print("Help");
+                playerPosition = new Vector2(player.transform.position.x + 1, player.transform.position.y);
+                GameObject s = Instantiate(sword, player.transform);
+               s.transform.localPosition = new Vector3(0,2,0);
+               s.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+               GameObject.Destroy(s,0.325f);
+            }
+        else if (Input.GetMouseButtonDown(0))
         {
             playerPosition = new Vector2(player.transform.position.x + 1, player.transform.position.y);
             GameObject s = Instantiate(sword, player.transform);
-            /*
-            if (PlayerController.instance.facingRight)
+            
+            if (PlayerController.instance.facingRight == true)
             {
                 s.transform.localPosition = new Vector3(1, 0, 0);
-
+                //StartCoroutine(Wait(s,0.325f));
+                
             }
-            */
+            if (PlayerController.instance.facingRight == false)
+            {
+                s.transform.localPosition = new Vector3(1, 0, 0);
+            }
+            
+            GameObject.Destroy(s,0.325f);
         }
+       
     }
+    IEnumerator Wait(GameObject toDestroy, float time)
+        {
+        
+        yield return new WaitForSeconds(time); // wait 3 seconds
+        GameObject.Destroy(toDestroy);
+        
+        }
 }

@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.2f;
 
     public float no_input;
-    private bool facingRight;
+    public bool facingRight;
 
     public static PlayerController instance;
     public bool isDamaged;
