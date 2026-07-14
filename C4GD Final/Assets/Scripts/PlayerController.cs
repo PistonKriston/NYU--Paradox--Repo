@@ -21,10 +21,13 @@ public class PlayerController : MonoBehaviour
 
     public float no_input;
     private bool facingRight;
+
+    public static PlayerController instance;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        instance = this;
     }
 
     // Update is called once per frame
