@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     public Button mainMenuButton;
     public GameObject controlls;
     public GameObject mainMenu;
-   
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +34,13 @@ public class MainMenu : MonoBehaviour
      public void ControlsGameButton()
     {
         controlls.SetActive(true);
+        
         mainMenu.SetActive(false);
     }
      public void MainMenuButton()
     {
         controlls.SetActive(false);
+      
         mainMenu.SetActive(true);
     }
 
