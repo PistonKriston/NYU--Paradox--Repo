@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public Button controllsButton;
     public Button mainMenuButton;
     public Button BackToGame;
+    public GameObject playerUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,12 +31,13 @@ public class PauseMenu : MonoBehaviour
      public void ControlsGameButton()
     {
         controlls.SetActive(true);
+        playerUI.SetActive(false);
    
     }
      public void BackToGameButton()
     {
         controlls.SetActive(false);
-      
+        playerUI.SetActive(true);
     }
   
 }
