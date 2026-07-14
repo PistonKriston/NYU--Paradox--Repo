@@ -1,0 +1,67 @@
+---
+description: Maintain PROMPT_LOG.md, FEATURES.md, and README.md as the game is built. Apply after every user prompt and whenever a component is completed.
+alwaysApply: true
+---
+
+# Project Documentation Maintenance
+
+This Unity project (C4GD Final) uses three living documentation files at the repository root. Keep them accurate and up to date throughout every session.
+
+## Required workflow — every user prompt
+
+After completing work for **each user prompt** (including question-only turns), append an entry to `PROMPT_LOG.md`:
+
+1. Add a new numbered entry under **Log Entries** (increment from the last number).
+2. Include the date (`YYYY-MM-DD`).
+3. Quote or paraphrase the user's prompt text faithfully.
+4. Write a brief **Outcome** paragraph (1–3 sentences) describing what was achieved, decided, or discovered — not just what files were touched.
+
+Do this **before** ending your turn, even if no code changed.
+
+## Required workflow — completed components
+
+When a game component, system, or feature is **finished** (implemented, fixed, or substantially refactored), update `FEATURES.md`:
+
+1. If the component already exists, update its entry in place.
+2. If it is new, add it under the appropriate category with a ✅ checkmark.
+3. Include a one- to two-sentence description of **how it works** (behavior, key scripts, inputs).
+4. Move items from **In Progress** to **Completed** when appropriate.
+
+A component counts as "finished" when it is functional in-game or the user explicitly confirms completion.
+
+## Required workflow — README maintenance
+
+Keep `README.md` current as the project evolves. After meaningful changes (new features, setup steps, controls, or architecture), update:
+
+- **Project summary** — what the game is and its core hook (time-travel platformer).
+- **Getting Started** — prerequisites, how to open/run the project in Unity.
+- **Features** — a complete bullet list mirroring `FEATURES.md` (user-facing language).
+- **Controls** — input bindings when they change.
+- **Project structure** — key folders and scripts when new systems are added.
+- **Known issues** — only genuine current limitations; remove fixed items.
+
+The README should read as a professional open-source game README: clear headings, complete sentences, no placeholder text.
+
+## File locations
+
+All three files live at the project root:
+
+```
+C4GD Final/
+├── PROMPT_LOG.md
+├── FEATURES.md
+└── README.md
+```
+
+## Style guidelines
+
+- Use markdown consistently; match the existing section structure in each file.
+- Keep entries concise — documentation should be scannable.
+- Do not delete historical PROMPT_LOG entries; always append.
+- Do not remove completed FEATURES entries; update descriptions when behavior changes.
+- Prefer present tense for feature descriptions ("The player jumps with Space").
+
+## When to skip
+
+- Do not create duplicate log entries for the same prompt if you already logged it earlier in the turn.
+- Do not mark a feature complete in FEATURES.md until it actually works or the user confirms it.

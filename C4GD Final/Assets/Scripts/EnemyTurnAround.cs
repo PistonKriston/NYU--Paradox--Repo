@@ -18,7 +18,7 @@ public class EnemyTurnAround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Enemy = gameObject;
+        
     }
 
     // Update is called once per frame
