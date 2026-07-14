@@ -24041,6 +24041,52 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!1 &633005645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633005646}
+  - component: {fileID: 633005647}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &633005646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633005645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.053768, y: 1.2199126, z: 0.042136416}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &633005647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633005645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a671da4212d3ff409e5c442772ce5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPosition: {x: 0, y: 0, z: 0}
+  playerInPast: 0
 --- !u!1 &845165809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2357205880085217301, guid: c72444eb49fdbf54fba1729405cdb446, type: 3}
@@ -24399,6 +24445,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4836017915139597153, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836017915139597153, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: m_GravityScale
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5611522655990387986, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: Enemy
       value: 
@@ -24414,6 +24468,10 @@ PrefabInstance:
     - target: {fileID: 5611522655990387986, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: GroundLayer.m_Bits
       value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716023662480933604, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5790846558020401942, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_Name
@@ -24433,7 +24491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7742141946067852692, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 7742141946067852692, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24467,11 +24525,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8892238307313370133, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9009284733991781160, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.88
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6753729109677140266, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4632149540108317090, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
     m_AddedGameObjects: []
@@ -24672,3 +24735,4 @@ SceneRoots:
   - {fileID: 895782871}
   - {fileID: 1393224479}
   - {fileID: 1516059729}
+  - {fileID: 633005646}
