@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
         FollowPlayer();
         if (flying == true)
         {
-            if (facing == -1)
+            if (facing == 1)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
                 rb.velocity = new Vector2(direction.x, VelocityY);
@@ -93,12 +93,12 @@ public class Enemy : MonoBehaviour
             if (facing == -1)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
-                rb.velocity = new Vector2(-speed, VelocityY);
+                rb.velocity = new Vector2(-speed, 0);
             }
             else
             {
                 transform.localScale = new Vector3(1, 1, 1);
-                rb.velocity = new Vector2(speed, VelocityY);
+                rb.velocity = new Vector2(speed, 0);
             }
         }
         
