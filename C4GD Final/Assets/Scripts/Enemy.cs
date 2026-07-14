@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     private Rigidbody2D rb;
     private Collider2D c2d;
+    private Animator animator;
     public float speed = 1f;
 
     private bool attacking = false;
@@ -18,13 +19,11 @@ public class Enemy : MonoBehaviour
 
     private float VelocityX;
     private float VelocityY;
-
-    private Color originalColor;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         attackTimer = attackDuration;
-        originalColor = GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame
@@ -47,7 +46,7 @@ public class Enemy : MonoBehaviour
             {
                 attacking = true;
                 attackTimer = -1;
-                GetComponent<SpriteRenderer>().color = Color.magenta;
+                animator.SetBool("attack", true);
             }
         }
         else if (collision.gameObject.layer == 3)
@@ -64,6 +63,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             attackTimer = 0;
+            
         }
         else if (collision.gameObject.layer == 3)
         {
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
             if (attackTimer >= attackDuration)
             {
                 attacking = false;
-                GetComponent<SpriteRenderer>().color = originalColor;
+                animator.SetBool("attack", false);
             }
         }
     }
