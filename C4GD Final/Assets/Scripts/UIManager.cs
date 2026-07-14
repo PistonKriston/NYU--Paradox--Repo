@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject deathScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,11 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void LoadDeathScreen()
+    {
+        deathScreen.SetActive(true);
     }
 }

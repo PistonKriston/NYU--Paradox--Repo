@@ -64,7 +64,11 @@ public class Enemy : MonoBehaviour
 
     private void FollowPlayer()
     {
-        Vector2 direction = (PlayerController.instance.transform.position - transform.position).normalized;
+        Vector2 direction = Vector2.zero;
+        if (PlayerController.instance != null)
+        {
+            direction = (PlayerController.instance.transform.position - transform.position).normalized;
+        }
         VelocityX = 0;
         if (!attacking)
         {
