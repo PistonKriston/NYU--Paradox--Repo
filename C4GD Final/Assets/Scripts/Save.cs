@@ -15,4 +15,13 @@ public class Save : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Input.GetKeyDown(KeyCode.S) && collision.gameObject.CompareTag("Player"))
+        {
+            print("Key S Pressed");
+            GameManager.instance.SaveGame();
+        }
+    }
 }
