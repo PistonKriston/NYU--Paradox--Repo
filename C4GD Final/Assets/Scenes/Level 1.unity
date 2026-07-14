@@ -968,7 +968,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4829374448242403910, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2042460419}
   m_SourcePrefab: {fileID: 100100000, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
 --- !u!1 &284317725
 GameObject:
@@ -2120,8 +2123,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4592996771331270842, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: maxHP
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6199934136905399922, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199934136905399922, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7742141946067852692, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
@@ -4157,6 +4168,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016353319}
   m_CullTransparentMesh: 1
+--- !u!1 &2042460409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4829374448242403910, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+  m_PrefabInstance: {fileID: 280519851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2042460419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042460409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82fb895df8d17874abeb2028945d3fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  attackDuration: 2
+  damage: 1
+  flying: 0
+  facing: 1
+  collisionObject: {fileID: 0}
+  damaging: 0
+  damageTimer: 0
+  healthBar: {fileID: 1613088287}
 --- !u!1 &2100157306
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,18 +1,26 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float damage = 1;
 
-    // Update is called once per frame
-    void Update()
+    private readonly HashSet<Health> hitTargets = new HashSet<Health>();
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Health health = collision.GetComponent<Health>();
+        if (health == null)
+            health = collision.GetComponentInParent<Health>();
+
+        if (health == null || !health.CompareTag("Enemy"))
+            return;
+
+        if (hitTargets.Contains(health))
+            return;
+
+        hitTargets.Add(health);
+        Debug.Log("Sword hit: " + health.name);
+        health.TakeDamage(damage);
     }
 }
