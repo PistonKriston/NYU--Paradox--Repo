@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -19,12 +20,23 @@ public class Enemy : MonoBehaviour
     private float VelocityX;
     private float VelocityY;
 
-    public int damage = 1;
+    public float damage = 1;
+    Vector2 direction;
+    public GameObject collisionObject;
+    public bool damaging = false;
+    public float damageTimer;
+    public GameObject player;
+    public Image healthBar;
+    void Start()
+    {
+        
+    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         attackTimer = attackDuration;
+
     }
 
     // Update is called once per frame
@@ -32,6 +44,40 @@ public class Enemy : MonoBehaviour
     {
         FollowPlayer();
         AttackTimer();
+
+        
+         if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+            
+        }
+        else if (direction.x >= 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+           
+        }
+        
+        if (damaging == true)
+        {
+            if (damageTimer <= 0)
+            {
+            healthBar.fillAmount -= damage/10;
+            collisionObject.GetComponent<Health>().TakeDamage(damage);
+            damageTimer = 1f;
+            
+            }
+           
+            if (damageTimer>0)
+            {
+            damageTimer-=Time.deltaTime;
+            }
+            else
+            {
+            damageTimer=0;
+            }
+        }
+      
+        
     }
 
     private void FixedUpdate()
@@ -48,7 +94,16 @@ public class Enemy : MonoBehaviour
                 attacking = true;
                 attackTimer = -1;
                 animator.SetBool("attack", true);
-                Attack(collision.gameObject);
+                collisionObject = collision.gameObject;
+                damaging = true;
+                damageTimer = 1f;
+                /*
+                if (attacking = true)
+                {
+                    InvokeRepeating("Attack", 1f, 1f);
+                }
+               */
+
             }
         }
     }
@@ -58,17 +113,14 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             attackTimer = 0;
-            
+            damaging = false;
+           
         }
     }
 
     private void FollowPlayer()
     {
-        Vector2 direction = Vector2.zero;
-        if (PlayerController.instance != null)
-        {
-            direction = (PlayerController.instance.transform.position - transform.position).normalized;
-        }
+        direction = (PlayerController.instance.transform.position - transform.position).normalized;
         VelocityX = 0;
         if (!attacking)
         {
@@ -97,10 +149,9 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
-    private void Attack(GameObject entity)
+    public void Attack()
     {
-        animator.Play("bite");
-        entity.GetComponent<Health>().TakeDamage(damage);
+        
+      collisionObject.GetComponent<Health>().TakeDamage(damage);
     }
 }
