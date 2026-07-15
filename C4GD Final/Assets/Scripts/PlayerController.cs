@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
 
     private void PlaceSave()
     {
-        if (Input.GetKey(KeyCode.S) && saveTimer >= 0 && saveTimer < 2)
+        if (Input.GetMouseButtonDown(2) && saveTimer >= 0 && saveTimer < 2)
         {
             saveTimer += Time.deltaTime;
         }
