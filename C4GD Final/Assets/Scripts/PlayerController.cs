@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
+    Animator animator;
     public float playerinput;
 
     public float move_speed = 7f;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         instance = this;
     }
 
@@ -148,9 +150,14 @@ public class PlayerController : MonoBehaviour
         }
 
         PlaceSave();
-        
-        
+
+
         rb2d.velocity = new Vector2(next_vel_x, next_vel_y);
+
+        animator.SetBool("isOnGround", isGrounded);
+        animator.SetBool("isOnWall", isLeftWall || isRightWall);
+        animator.SetFloat("XSpeed", Mathf.Abs(rb2d.velocity.x));
+        animator.SetFloat("YSpeed", rb2d.velocity.y);
     }
 
     private void PlaceSave()
