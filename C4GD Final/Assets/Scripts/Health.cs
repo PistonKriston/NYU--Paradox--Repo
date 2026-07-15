@@ -22,7 +22,11 @@ public class Health : MonoBehaviour
         {
             TakeDamage(currentHP);
         }
-        healthBar.fillAmount = currentHP / 10f;
+        if (healthBar != null)
+        {
+             healthBar.fillAmount = currentHP / 10f;
+        }
+        
     }
     public void TakeDamage(float amt)
     {

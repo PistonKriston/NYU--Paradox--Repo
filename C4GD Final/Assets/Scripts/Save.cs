@@ -15,7 +15,7 @@ public class Save : MonoBehaviour
     {
         
     }
-
+/*
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (Input.GetKeyDown(KeyCode.S) && collision.gameObject.CompareTag("Player"))
@@ -23,4 +23,5 @@ public class Save : MonoBehaviour
             GameManager.instance.SaveGame();
         }
     }
+    */
 }

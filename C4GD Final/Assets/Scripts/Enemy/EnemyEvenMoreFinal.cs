@@ -34,11 +34,15 @@ public class EnemyEvenMoreFinal : MonoBehaviour
     public int ID;
 
     private Rigidbody2D rb;
+    public Rigidbody2D enemyRB;
+    public float force = 10f;
     private Animator animator;
 
     private bool isAttacking = false;
     [HideInInspector] public float facing = 1f;
     private Vector2 desiredVelocity = Vector2.zero;
+
+    public bool isKnockBack = false;
 
     private void Awake()
     {
@@ -79,7 +83,11 @@ public class EnemyEvenMoreFinal : MonoBehaviour
     private void FixedUpdate()
     {
         // Apply velocity in FixedUpdate for stable physics
-        rb.velocity = desiredVelocity;
+        if (isKnockBack == false)
+        {
+             rb.velocity = desiredVelocity;
+        }
+       
     }
 
     private void HandleMovement()
@@ -208,10 +216,13 @@ public class EnemyEvenMoreFinal : MonoBehaviour
             }
         }
     }
-
-    private void AttackTimer()
+    public void Knockback()
     {
-
+        print("Help");
+        enemyRB = gameObject.GetComponent<Rigidbody2D>();
+        Vector2 diagonalForce = new Vector2(1, 1).normalized * force;
+        enemyRB.velocity = diagonalForce;
+        isKnockBack = true;
     }
 }
 

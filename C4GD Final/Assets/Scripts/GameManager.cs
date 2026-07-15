@@ -23,17 +23,19 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    /*
     private void Start()
     {
         SaveGame();
     }
+    */
 
     // Update is called once per frame
     void Update()
     {
         
     }
-
+    /*
     public void SaveGame()
     {
         playerPosition = PlayerController.instance.transform.position;
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
             enemyPositions[i] = (enemies[i].GetComponent<EnemyEvenMoreFinal>().ID, enemies[i].transform.position);
         }
     }
+    */
 
     public void Load()
     {
