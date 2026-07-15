@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1348638717457353742, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4836017915139597153, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -190,11 +194,14 @@ MonoBehaviour:
   attackTriggerName: attack
   attackBoolName: attack
   idleStateName: Idle
-  healthBar: {fileID: 0}
   ID: 0
   enemyRB: {fileID: 6202312027085764437}
   force: 10
   facing: 1
+  isKnockBack: 0
+  maxTimeRemaining: 1
+  timeRemaining: 1
+  timerIsRunning: 0
 --- !u!50 &6202312027085764437 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4836017915139597153, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
