@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
             print("bugged line of code");
         }
         GetComponent<TimeTravel>().inPast = GameManager.instance.playerInPast;
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
     public float facing = 1;
 
