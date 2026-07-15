@@ -7,10 +7,11 @@ public class Sword : MonoBehaviour
     public Rigidbody2D enemyRB;
     private readonly HashSet<Health> hitTargets = new HashSet<Health>();
     public float force = 10f;
+    public EnemyEvenMoreFinal enemyFinal;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Vector2 diagonalForce = new Vector2(1, 1).normalized * force;
+        enemyFinal = collision.gameObject.GetComponentInParent<EnemyEvenMoreFinal>();
        
         Health health = collision.GetComponent<Health>();
         if (health == null)
@@ -26,7 +27,7 @@ public class Sword : MonoBehaviour
         hitTargets.Add(health);
         Debug.Log("Sword hit: " + health.name);
         health.TakeDamage(damage);
-        enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
+        enemyFinal.Knockback();
         
     }
 }
