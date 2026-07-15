@@ -26,8 +26,6 @@ public class EnemyEvenMoreFinal : MonoBehaviour
     public string attackTriggerName = "attack";
     public string attackBoolName = "attack";
     public string idleStateName = "Idle";
-    [Tooltip("This is so the bite animation is synced with damage.")]
-    public float biteDuration;
 
     [Header("References")]
     public Image healthBar;
@@ -39,7 +37,6 @@ public class EnemyEvenMoreFinal : MonoBehaviour
     private Animator animator;
 
     private bool isAttacking = false;
-    private float attackTimer = 0;
     [HideInInspector] public float facing = 1f;
     private Vector2 desiredVelocity = Vector2.zero;
 
