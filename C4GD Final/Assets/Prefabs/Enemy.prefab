@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 220445307855321269}
   - component: {fileID: 4592996771331270842}
   - component: {fileID: 5611522655990387986}
-  - component: {fileID: 2832689573530615498}
+  - component: {fileID: 1026097999824909352}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   currentHP: 10
-  DeathScreen: {fileID: 0}
+  deathScreen: {fileID: 0}
 --- !u!114 &5611522655990387986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +436,7 @@ MonoBehaviour:
   left_side: 0
   Enemy: {fileID: 0}
   flip_cooldown: 0
---- !u!114 &2832689573530615498
+--- !u!114 &1026097999824909352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,15 +445,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6199934136905399922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fb895df8d17874abeb2028945d3fdb, type: 3}
+  m_Script: {fileID: 11500000, guid: 74959835b83743c428bdb07b512819da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  attackDuration: 2
+  flying: 1
+  speed: 3
+  stopDistance: 0.75
+  attackRange: 1.5
   damage: 1
-  flying: 0
-  facing: 1
-  collisionObject: {fileID: 0}
-  damaging: 0
-  damageTimer: 0
+  attackUsesTrigger: 1
+  attackTriggerName: attack
+  attackBoolName: attack
+  idleStateName: Idle
+  player: {fileID: 0}
   healthBar: {fileID: 0}
