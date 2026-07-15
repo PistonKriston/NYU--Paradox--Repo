@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5611522655990387986, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5716023662480933604, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -66,11 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7742141946067852692, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.58
+      value: 2.52
       objectReference: {fileID: 0}
     - target: {fileID: 7742141946067852692, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.09
+      value: -1.59
       objectReference: {fileID: 0}
     - target: {fileID: 7742141946067852692, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -122,6 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6753729109677140266, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
+    - {fileID: 2832689573530615498, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -130,7 +135,7 @@ PrefabInstance:
       addedObject: {fileID: -6239206905216022545}
     - targetCorrespondingSourceObject: {fileID: 6199934136905399922, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5521277249038702116}
+      addedObject: {fileID: 8809731147449981075}
   m_SourcePrefab: {fileID: 100100000, guid: 0d66b92f25e2db948856a432e20dd8b9, type: 3}
 --- !u!1 &4829374448242403910 stripped
 GameObject:
@@ -158,7 +163,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5521277249038702116
+--- !u!114 &8809731147449981075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,15 +172,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4829374448242403910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fb895df8d17874abeb2028945d3fdb, type: 3}
+  m_Script: {fileID: 11500000, guid: 74959835b83743c428bdb07b512819da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  attackDuration: 2
-  damage: 1
   flying: 1
-  facing: 1
-  collisionObject: {fileID: 0}
-  damaging: 0
-  damageTimer: 0
+  speed: 3
+  stopDistance: 0.75
+  attackRange: 1.5
+  damage: 1
+  attackUsesTrigger: 1
+  attackTriggerName: attack
+  attackBoolName: attack
+  idleStateName: Idle
+  player: {fileID: 0}
   healthBar: {fileID: 0}
