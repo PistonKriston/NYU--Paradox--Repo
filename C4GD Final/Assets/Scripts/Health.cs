@@ -23,6 +23,10 @@ public class Health : MonoBehaviour
             TakeDamage(currentHP);
 
         }
+        if (healthBar != null)
+        {
+             healthBar.fillAmount = currentHP / 10f;
+        }
     }
     public void TakeDamage(float amt)
     {
@@ -30,7 +34,7 @@ public class Health : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             float delta = amt / 10f;
-            healthBar.fillAmount = Mathf.Clamp01(healthBar.fillAmount - delta);
+            
         }
         if (currentHP <= 0)
         {
