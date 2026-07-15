@@ -21,17 +21,17 @@ public class Health : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             TakeDamage(currentHP);
+
         }
-        if (healthBar != null)
-        {
-             healthBar.fillAmount = currentHP / 10f;
-        }
-        
     }
     public void TakeDamage(float amt)
     {
         currentHP -= amt;
-
+        if (gameObject.CompareTag("Player"))
+        {
+            float delta = amt / 10f;
+            healthBar.fillAmount = Mathf.Clamp01(healthBar.fillAmount - delta);
+        }
         if (currentHP <= 0)
         {
             Destroy(gameObject);

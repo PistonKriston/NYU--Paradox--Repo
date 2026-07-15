@@ -27,9 +27,6 @@ public class EnemyEvenMoreFinal : MonoBehaviour
     public string attackBoolName = "attack";
     public string idleStateName = "Idle";
 
-    [Header("References")]
-    public Image healthBar;
-
     [Header("Save Variables")]
     public int ID;
 
@@ -207,13 +204,6 @@ public class EnemyEvenMoreFinal : MonoBehaviour
         if (h != null)
         {
             h.TakeDamage(damage);
-
-            if (healthBar != null)
-            {
-                // Assume healthBar.fillAmount is 0..1 and damage is scaled to 10 health units as in original code.
-                float delta = damage / 10f;
-                healthBar.fillAmount = Mathf.Clamp01(healthBar.fillAmount - delta);
-            }
         }
     }
     public void Knockback()
