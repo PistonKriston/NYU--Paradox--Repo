@@ -3,12 +3,13 @@
 // and only deals damage when BiteHit is called by the attack animation.
 // No collision/trigger code in this script applies damage.
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-public class EnemyFinal : MonoBehaviour
+public class EnemyEvenMoreFinal : MonoBehaviour
 {
     [Header("Movement")]
     public bool flying = true;
@@ -26,16 +27,19 @@ public class EnemyFinal : MonoBehaviour
     public string attackBoolName = "attack";
     public string idleStateName = "Idle";
 
-    [Header("References")]
-    public GameObject player;
-    public Image healthBar;
+    [Header("Save Variables")]
+    public int ID;
 
     private Rigidbody2D rb;
+    public Rigidbody2D enemyRB;
+    public float force = 10f;
     private Animator animator;
 
     private bool isAttacking = false;
-    private float facing = 1f;
+    [HideInInspector] public float facing = 1f;
     private Vector2 desiredVelocity = Vector2.zero;
+
+    public bool isKnockBack = false;
 
     private void Awake()
     {
@@ -45,17 +49,28 @@ public class EnemyFinal : MonoBehaviour
 
     private void Start()
     {
-        if (player == null)
+        if (PlayerController.instance == null)
         {
-            player = GameObject.FindGameObjectWithTag("Player");
-            if (player == null)
-                Debug.LogWarning("EnemyFinal: Player not assigned and no GameObject with tag 'Player' found.");
+            Debug.LogWarning("EnemyEvenMoreFinal: PlayerController does not exist right now.");
+        }
+
+        //For saving purposes
+        if (GameManager.instance.enemyPositions != null)
+        {
+            foreach ((int, Vector3) t in GameManager.instance.enemyPositions)
+            {
+                if (t.Item1 == ID)
+                {
+                    print("Does this work");
+                    transform.position = t.Item2;
+                }
+            }
         }
     }
 
     private void Update()
     {
-        if (player == null) return;
+        if (PlayerController.instance == null) return;
 
         HandleMovement();
         HandleAttackCheck();
@@ -65,17 +80,24 @@ public class EnemyFinal : MonoBehaviour
     private void FixedUpdate()
     {
         // Apply velocity in FixedUpdate for stable physics
-        rb.velocity = desiredVelocity;
+        if (isKnockBack == false)
+        {
+             rb.velocity = desiredVelocity;
+        }
+       
     }
 
     private void HandleMovement()
     {
-        Vector2 toPlayer = (player.transform.position - transform.position);
+        Vector2 toPlayer = (PlayerController.instance.transform.position - transform.position);
         float dist = toPlayer.magnitude;
         Vector2 dir = toPlayer.normalized;
 
         // Flip sprite to face player
-        facing = player.transform.position.x > transform.position.x ? 1f : -1f;
+        if (gameObject.GetComponent<EnemyTurnAround>().flip_cooldown <= 0)
+        {
+            facing = PlayerController.instance.transform.position.x > transform.position.x ? 1f : -1f;
+        }
         transform.localScale = new Vector3(facing, 1f, 1f);
 
         // Stop when close enough
@@ -101,7 +123,7 @@ public class EnemyFinal : MonoBehaviour
     {
         if (isAttacking) return;
 
-        float dist = Vector2.Distance(player.transform.position, transform.position);
+        float dist = Vector2.Distance(PlayerController.instance.transform.position, transform.position);
 
         if (dist <= attackRange)
         {
@@ -133,23 +155,12 @@ public class EnemyFinal : MonoBehaviour
     // CALLED BY ANIMATION EVENT at the frame where the bite should deal damage
     public void BiteHit()
     {
-        if (player == null) return;
+        if (PlayerController.instance == null) return;
 
-        float dist = Vector2.Distance(player.transform.position, transform.position);
+        float dist = Vector2.Distance(PlayerController.instance.transform.position, transform.position);
         if (dist > attackRange) return;
 
-        Health h = player.GetComponent<Health>();
-        if (h != null)
-        {
-            h.TakeDamage(damage);
-
-            if (healthBar != null)
-            {
-                // Assume healthBar.fillAmount is 0..1 and damage is scaled to 10 health units as in original code.
-                float delta = damage / 10f;
-                healthBar.fillAmount = Mathf.Clamp01(healthBar.fillAmount - delta);
-            }
-        }
+        Attack();
     }
 
     // CALLED BY ANIMATION EVENT at the end of the attack animation
@@ -186,4 +197,22 @@ public class EnemyFinal : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, stopDistance);
     }
+
+    private void Attack()
+    {
+        Health h = PlayerController.instance.GetComponent<Health>();
+        if (h != null)
+        {
+            h.TakeDamage(damage);
+        }
+    }
+    public void Knockback()
+    {
+        print("Help");
+        enemyRB = gameObject.GetComponent<Rigidbody2D>();
+        Vector2 diagonalForce = new Vector2(1, 1).normalized * force;
+        enemyRB.velocity = diagonalForce;
+        isKnockBack = true;
+    }
 }
+

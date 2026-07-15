@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask BothLayer;
     public float groundCheckRadius = 0.2f;
 
+    public GameObject savePoint;
+    private float saveTimer = 0;
+
     public float no_input;
     public bool facingRight;
 
@@ -143,17 +146,29 @@ public class PlayerController : MonoBehaviour
             no_input = 0.3f;
             Debug.Log("LEFT" + isLeftWall + " RIGHT" + isRightWall);
         }
-            
-        
+
+        PlaceSave();
         
         
         rb2d.velocity = new Vector2(next_vel_x, next_vel_y);
     }
 
-    private void OnDestroy()
+    private void PlaceSave()
     {
-        UIManager ui = FindObjectOfType<UIManager>();
-        ui.LoadDeathScreen();
+        if (Input.GetKey(KeyCode.S) && saveTimer >= 0 && saveTimer < 2)
+        {
+            saveTimer += Time.deltaTime;
+        }
+        if (saveTimer >= 2)
+        {
+            Instantiate(savePoint, transform.position, Quaternion.identity);
+            GameManager.instance.SaveGame();
+            saveTimer = -1;
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            saveTimer = 0;
+        }
     }
 
     bool CheckGrounded()

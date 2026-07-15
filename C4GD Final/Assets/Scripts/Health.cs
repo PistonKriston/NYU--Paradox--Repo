@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public float maxHP = 10f;
     public float currentHP = 10f;
     public GameObject deathScreen;
+    public Image healthBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +21,28 @@ public class Health : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             TakeDamage(currentHP);
+
+        }
+        if (healthBar != null)
+        {
+             healthBar.fillAmount = currentHP / 10f;
         }
     }
     public void TakeDamage(float amt)
     {
         currentHP -= amt;
-
+        if (gameObject.CompareTag("Player"))
+        {
+            float delta = amt / 10f;
+            
+        }
         if (currentHP <= 0)
         {
             Destroy(gameObject);
-            deathScreen.SetActive(true);
+            if (gameObject.CompareTag("Player"))
+            {
+                deathScreen.SetActive(true);
+            }
         }
     }
 }
