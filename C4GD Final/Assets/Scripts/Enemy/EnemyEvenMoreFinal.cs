@@ -30,6 +30,9 @@ public class EnemyEvenMoreFinal : MonoBehaviour
     [Header("References")]
     public Image healthBar;
 
+    [Header("Save Variables")]
+    public int ID;
+
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -55,7 +58,7 @@ public class EnemyEvenMoreFinal : MonoBehaviour
         {
             foreach ((int, Vector3) t in GameManager.instance.enemyPositions)
             {
-                if (t.Item1 == gameObject.GetInstanceID())
+                if (t.Item1 == ID)
                 {
                     print("Does this work");
                     transform.position = t.Item2;
@@ -152,18 +155,7 @@ public class EnemyEvenMoreFinal : MonoBehaviour
         float dist = Vector2.Distance(PlayerController.instance.transform.position, transform.position);
         if (dist > attackRange) return;
 
-        Health h = PlayerController.instance.GetComponent<Health>();
-        if (h != null)
-        {
-            h.TakeDamage(damage);
-
-            if (healthBar != null)
-            {
-                // Assume healthBar.fillAmount is 0..1 and damage is scaled to 10 health units as in original code.
-                float delta = damage / 10f;
-                healthBar.fillAmount = Mathf.Clamp01(healthBar.fillAmount - delta);
-            }
-        }
+        Attack();
     }
 
     // CALLED BY ANIMATION EVENT at the end of the attack animation
@@ -199,6 +191,27 @@ public class EnemyEvenMoreFinal : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, stopDistance);
+    }
+
+    private void Attack()
+    {
+        Health h = PlayerController.instance.GetComponent<Health>();
+        if (h != null)
+        {
+            h.TakeDamage(damage);
+
+            if (healthBar != null)
+            {
+                // Assume healthBar.fillAmount is 0..1 and damage is scaled to 10 health units as in original code.
+                float delta = damage / 10f;
+                healthBar.fillAmount = Mathf.Clamp01(healthBar.fillAmount - delta);
+            }
+        }
+    }
+
+    private void AttackTimer()
+    {
+
     }
 }
 

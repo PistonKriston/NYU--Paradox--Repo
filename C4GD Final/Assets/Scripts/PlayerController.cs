@@ -150,12 +150,6 @@ public class PlayerController : MonoBehaviour
         rb2d.velocity = new Vector2(next_vel_x, next_vel_y);
     }
 
-    private void OnDestroy()
-    {
-        UIManager ui = FindObjectOfType<UIManager>();
-        ui.LoadDeathScreen();
-    }
-
     bool CheckGrounded()
     {
         if (Physics2D.OverlapCircle(GroundCheckPoint.position, groundCheckRadius, GroundLayer))
