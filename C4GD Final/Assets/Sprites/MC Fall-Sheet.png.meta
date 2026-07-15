@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d3951f00b3f3ba7409b30a004347f34d
+guid: b487d65895e7be74bba8db2a1a7a475b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,11 +97,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IDLE (1)_0
+      name: MC Fall-Sheet_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 4
+        x: 7
+        y: 6
         width: 18
         height: 30
       alignment: 0
@@ -111,19 +111,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68b96973949218c4ca943a02b8073f6a
-      internalID: 1689112704
+      spriteID: 1cbc86e23281a414eb1b982f7504164d
+      internalID: 604049247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDLE (1)_1
+      name: MC Fall-Sheet_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 4
-        width: 18
+        x: 42
+        y: 7
+        width: 20
         height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -132,8 +132,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d59e504ac6a00f74dbaadfa5bf034428
-      internalID: -1347030137
+      spriteID: b6bea91da463028458802ef34681fb6c
+      internalID: 2013921392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC Fall-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 6
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce2a338f485541448970d8c3aeb6368
+      internalID: 1118119352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC Fall-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 6
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 121adc8b9327e6246a812a35e39cb9f5
+      internalID: 1511395588
       vertices: []
       indices: 
       edges: []
@@ -149,8 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IDLE (1)_0: 1689112704
-      IDLE (1)_1: -1347030137
+      MC Fall-Sheet_0: 604049247
+      MC Fall-Sheet_1: 2013921392
+      MC Fall-Sheet_2: 1118119352
+      MC Fall-Sheet_3: 1511395588
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

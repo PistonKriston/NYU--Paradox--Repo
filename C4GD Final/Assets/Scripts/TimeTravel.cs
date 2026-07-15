@@ -9,11 +9,19 @@ public class TimeTravel : MonoBehaviour
     public bool isGroundedEnemy;
     public float distanceBetweenLevels = 100f;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
+        inPast = GameManager.instance.playerInPast;
         if (inPast)
         {
-            transform.Translate(Vector3.up * distanceBetweenLevels);
+            if (isGroundedEnemy)
+            {
+                gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            }
+            else
+            {
+                transform.Translate(Vector3.up * distanceBetweenLevels);
+            }
         }
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d3951f00b3f3ba7409b30a004347f34d
+guid: 9debc946fa763954e94ee1b01ca65218
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,32 +97,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IDLE (1)_0
+      name: MC jump (1 frame)-Sheet_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 4
-        width: 18
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68b96973949218c4ca943a02b8073f6a
-      internalID: 1689112704
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDLE (1)_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 4
+        x: 5
+        y: 0
         width: 18
         height: 29
       alignment: 0
@@ -132,8 +111,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d59e504ac6a00f74dbaadfa5bf034428
-      internalID: -1347030137
+      spriteID: 29a9eee93d31b934d922c0db64c01e70
+      internalID: 910898526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC jump (1 frame)-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 0
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a9fe2f5ab3beb4995cbfc4ddd9df03
+      internalID: -1645556970
       vertices: []
       indices: 
       edges: []
@@ -149,8 +149,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IDLE (1)_0: 1689112704
-      IDLE (1)_1: -1347030137
+      MC jump (1 frame)-Sheet_0: 910898526
+      MC jump (1 frame)-Sheet_1: -1645556970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
