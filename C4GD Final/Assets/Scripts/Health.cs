@@ -28,7 +28,10 @@ public class Health : MonoBehaviour
         if (currentHP <= 0)
         {
             Destroy(gameObject);
-            deathScreen.SetActive(true);
+            if (gameObject.CompareTag("Player"))
+            {
+                deathScreen.SetActive(true);
+            }
         }
     }
 }
