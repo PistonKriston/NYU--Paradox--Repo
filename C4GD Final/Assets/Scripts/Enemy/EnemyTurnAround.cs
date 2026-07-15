@@ -24,7 +24,7 @@ public class EnemyTurnAround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Enemy.GetComponent<Enemy>().flying != true)
+        if (Enemy.GetComponent<EnemyEvenMoreFinal>().flying != true)
         {
             left_side = CheckLeft();
 
@@ -38,7 +38,7 @@ public class EnemyTurnAround : MonoBehaviour
                 if (left_side != true)
                 {
                     transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
-                    Enemy.GetComponent<Enemy>().facing *= -1;
+                    Enemy.GetComponent<EnemyEvenMoreFinal>().facing *= -1;
                     Debug.Log("The Enemy should have flipped");
                     flip_cooldown = 0.1f;
                 }
