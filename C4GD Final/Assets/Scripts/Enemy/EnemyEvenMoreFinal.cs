@@ -41,6 +41,11 @@ public class EnemyEvenMoreFinal : MonoBehaviour
 
     public bool isKnockBack = false;
 
+    public float maxTimeRemaining = 1; // seconds
+
+    public float timeRemaining = 1; // seconds
+    public bool timerIsRunning = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -49,6 +54,7 @@ public class EnemyEvenMoreFinal : MonoBehaviour
 
     private void Start()
     {
+        
         if (PlayerController.instance == null)
         {
             Debug.LogWarning("EnemyEvenMoreFinal: PlayerController does not exist right now.");
@@ -75,6 +81,23 @@ public class EnemyEvenMoreFinal : MonoBehaviour
         HandleMovement();
         HandleAttackCheck();
         SyncAnimatorMovement();
+        if (timerIsRunning)
+        {
+             if (timeRemaining > 0)
+        {
+        timeRemaining -= Time.deltaTime;
+       
+        }
+        else
+        {
+        
+        isKnockBack = false;
+        
+        
+        }
+        
+        }
+       
     }
 
     private void FixedUpdate()
@@ -213,6 +236,8 @@ public class EnemyEvenMoreFinal : MonoBehaviour
         Vector2 diagonalForce = new Vector2(1, 1).normalized * force;
         enemyRB.velocity = diagonalForce;
         isKnockBack = true;
+        timerIsRunning = true;
+        timeRemaining = maxTimeRemaining;
     }
 }
 
