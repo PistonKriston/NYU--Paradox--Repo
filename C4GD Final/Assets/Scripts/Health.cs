@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public float maxHP = 10f;
     public float currentHP = 10f;
     public GameObject deathScreen;
+    public Image healthBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class Health : MonoBehaviour
         {
             TakeDamage(currentHP);
         }
+        healthBar.fillAmount = currentHP / 10f;
     }
     public void TakeDamage(float amt)
     {
