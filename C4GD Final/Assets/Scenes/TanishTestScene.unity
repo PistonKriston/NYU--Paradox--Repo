@@ -2034,7 +2034,13 @@ MonoBehaviour:
   attackBoolName: attack
   idleStateName: Idle
   ID: 2
+  enemyRB: {fileID: 0}
+  force: 10
   facing: 1
+  isKnockBack: 0
+  maxTimeRemaining: 1
+  timeRemaining: 1
+  timerIsRunning: 0
 --- !u!1 &715847534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,7 +2236,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.875}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2398,6 +2404,10 @@ PrefabInstance:
     - target: {fileID: 4829374448242403910, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_Name
       value: Flying Enemy Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829374448242403910, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5239346153056845086, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: flying
@@ -4478,7 +4488,13 @@ MonoBehaviour:
   attackBoolName: attack
   idleStateName: Idle
   ID: 1
+  enemyRB: {fileID: 0}
+  force: 10
   facing: 1
+  isKnockBack: 0
+  maxTimeRemaining: 1
+  timeRemaining: 1
+  timerIsRunning: 0
 --- !u!1 &1988535657
 GameObject:
   m_ObjectHideFlags: 0
