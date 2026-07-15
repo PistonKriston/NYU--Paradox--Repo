@@ -27,7 +27,7 @@ public class EnemyFinal : MonoBehaviour
     public string idleStateName = "Idle";
 
     [Header("References")]
-    public GameObject player;
+    public GameObject player; //Don't really need this;
     public Image healthBar;
 
     private Rigidbody2D rb;

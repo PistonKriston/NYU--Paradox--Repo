@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Timers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,11 +37,13 @@ public class GameManager : MonoBehaviour
     {
         playerPosition = PlayerController.instance.transform.position;
         playerInPast = PlayerController.instance.GetComponent<TimeTravel>().inPast;
-        Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.InstanceID);
+        EnemyEvenMoreFinal[] enemies = FindObjectsByType<EnemyEvenMoreFinal>(FindObjectsSortMode.InstanceID);
+        print(enemies.ToString());
         for (int i = 0; i < enemies.Length; i++)
         {
             enemyPositions[i] = (enemies[i].gameObject.GetInstanceID(), enemies[i].transform.position);
         }
+        print(enemyPositions.ToString());
     }
 
     public void Load()
