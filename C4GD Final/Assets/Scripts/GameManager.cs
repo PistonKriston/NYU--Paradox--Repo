@@ -37,14 +37,14 @@ public class GameManager : MonoBehaviour
     {
         playerPosition = PlayerController.instance.transform.position;
         playerInPast = PlayerController.instance.GetComponent<TimeTravel>().inPast;
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        EnemyEvenMoreFinal[] enemies = GameObject.FindObjectsOfType<EnemyEvenMoreFinal>();
         for (int i = 0; i < enemies.Length; i++)
         {
             if (enemyPositions.Count <= i)
             {
                 enemyPositions.Add(Vector3.zero);
             }
-            enemyPositions[i] = (enemies[i].GetComponent<EnemyEvenMoreFinal>().ID, enemies[i].transform.position);
+            enemyPositions[i] = (enemies[i].ID, enemies[i].transform.position);
         }
     }
     

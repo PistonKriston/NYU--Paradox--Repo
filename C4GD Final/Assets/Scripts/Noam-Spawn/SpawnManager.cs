@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject spawner;
+  
     public GameObject enemyPrefab;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (spawner.gameObject.tag == ("Spawner") && collision.gameObject.tag == ("Enemy"))
+        if (collision.gameObject.tag == ("Spawner"))
         {
             enemyPrefab.SetActive(true);
         }
