@@ -8,6 +8,14 @@ public class Sword : MonoBehaviour
     private readonly HashSet<Health> hitTargets = new HashSet<Health>();
     public float force = 10f;
     public EnemyEvenMoreFinal enemyFinal;
+    public GameObject player;
+    public Vector2 direction;
+
+
+    void Update()
+    {
+        transform.position = player.transform.position + (Vector3)direction;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
