@@ -224,7 +224,7 @@ MonoBehaviour:
     m_Bits: 128
   BothLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   groundCheckRadius: 0.2
   savePoint: {fileID: 8032083835459443492, guid: e87a97f7972cc304b9a7c2d944251f0b, type: 3}
   no_input: 0
