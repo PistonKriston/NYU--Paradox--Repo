@@ -124,21 +124,33 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.011754036
       objectReference: {fileID: 0}
+    - target: {fileID: 2989808183462465458, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4829374448242403910, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_Name
       value: Flying Enemy Variant (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4829374448242403910, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5062737619640513911, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5062737619640513911, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: stopDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062737619640513911, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: maxTimeRemaining
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062737619640513911, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: attackUsesTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6511238019060668112, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_Size.x
@@ -155,6 +167,10 @@ PrefabInstance:
     - target: {fileID: 6511238019060668112, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_Offset.y
       value: 0.04904163
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824252382120727454, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: force
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6824252382120727454, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: speed
@@ -228,7 +244,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5062737619640513911, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
