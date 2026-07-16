@@ -15,10 +15,12 @@ public class Combat : MonoBehaviour
 
     public bool isAttacking = false;
 
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,7 @@ public class Combat : MonoBehaviour
        
         if (Input.GetKey("w") && Input.GetMouseButtonDown(0))
             {
+                 animator.SetTrigger("isAttacking");
                 print("Help");
                 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y + 1.5f);
                 print(playerPosition);
@@ -62,9 +65,11 @@ public class Combat : MonoBehaviour
                timerIsRunning = true;
         isAttacking = true;
         timeRemaining = maxTimeRemaining;
+        
             }
         else if (Input.GetKey("s") && Input.GetMouseButtonDown(0))
             {
+                animator.SetTrigger("isAttacking");
                 print("Help");
                 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y + 1.5f);
                 print(playerPosition);
@@ -78,6 +83,7 @@ public class Combat : MonoBehaviour
                timerIsRunning = true;
                 isAttacking = true;
                 timeRemaining = maxTimeRemaining;
+                
             }
         else if (Input.GetMouseButtonDown(0))
         {
@@ -86,6 +92,7 @@ public class Combat : MonoBehaviour
             
             if (PlayerController.instance.facingRight == true)
             {
+                animator.SetTrigger("isAttacking");
                 //s.transform.localPosition = new Vector3(1, 0, 0);
                 //StartCoroutine(Wait(s,0.325f));
                 s.GetComponent<Sword>().direction = new Vector2(1,0);
@@ -93,6 +100,7 @@ public class Combat : MonoBehaviour
             }
             if (PlayerController.instance.facingRight == false)
             {
+                animator.SetTrigger("isAttacking");
                 //s.transform.localPosition = new Vector3(1, 0, 0);
                 s.GetComponent<Sword>().direction = new Vector2(-1,0);
                  s.GetComponent<Sword>().player = gameObject;
