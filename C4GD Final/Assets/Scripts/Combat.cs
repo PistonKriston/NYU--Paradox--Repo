@@ -17,6 +17,9 @@ public class Combat : MonoBehaviour
 
     Animator animator;
 
+    public bool up = false;
+    public bool down = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +65,7 @@ public class Combat : MonoBehaviour
                s.GetComponent<Sword>().player = gameObject;
                s.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
                GameObject.Destroy(s,0.325f);
+               up = true;
                timerIsRunning = true;
         isAttacking = true;
         timeRemaining = maxTimeRemaining;
@@ -80,6 +84,7 @@ public class Combat : MonoBehaviour
                s.GetComponent<Sword>().player = gameObject;
                s.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
                GameObject.Destroy(s,0.325f);
+               down = true;
                timerIsRunning = true;
                 isAttacking = true;
                 timeRemaining = maxTimeRemaining;

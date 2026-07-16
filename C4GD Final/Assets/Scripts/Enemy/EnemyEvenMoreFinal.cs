@@ -46,8 +46,15 @@ public class EnemyEvenMoreFinal : MonoBehaviour
     public float timeRemaining = 1; // seconds
     public bool timerIsRunning = false;
 
+    Combat combat;
+
+    public GameObject player;
+
+    public Vector2 diagonalForce;
+
     private void Awake()
     {
+        combat = player.GetComponent<Combat>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -236,7 +243,26 @@ public class EnemyEvenMoreFinal : MonoBehaviour
     {
         print("Help");
         enemyRB = gameObject.GetComponent<Rigidbody2D>();
-        Vector2 diagonalForce = new Vector2(1, 1).normalized * force;
+       
+        if (PlayerController.instance.facingRight == true)
+        {
+            diagonalForce = new Vector2(1, 1).normalized * force;
+        }
+        else if (PlayerController.instance.facingRight == false)
+        {
+            diagonalForce = new Vector2(-1, 1).normalized * force;
+        }
+        else if (combat.up == true)
+        {
+             diagonalForce = new Vector2(0, 1).normalized * force;
+             combat.up = false;
+        }
+        else if (combat.down == true)
+        {
+             diagonalForce = new Vector2(0,-1).normalized * force;
+             combat.down = false;
+        }
+        
         enemyRB.velocity = diagonalForce;
         isKnockBack = true;
         timerIsRunning = true;
