@@ -162,9 +162,10 @@ public class PlayerController : MonoBehaviour
 
     private void PlaceSave()
     {
-        if (Input.GetMouseButtonDown(2) && saveTimer >= 0 && saveTimer < 2)
+        if (Input.GetKey(KeyCode.Q) && saveTimer >= 0 && saveTimer < 2)
         {
             saveTimer += Time.deltaTime;
+            print(saveTimer);
         }
         if (saveTimer >= 2)
         {
@@ -172,7 +173,7 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.SaveGame();
             saveTimer = -1;
         }
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.Q))
         {
             saveTimer = 0;
         }
