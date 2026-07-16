@@ -185,7 +185,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -211,8 +211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerinput: 0
   move_speed: 7
-  jump_speed: 10
+  jump_speed: 15
   max_speed: 10
+  wallJumpSpeed: 1200
   GroundCheckPoint: {fileID: 5344346810846931123}
   WallCheckPointLeft: {fileID: 2734950595610211866}
   WallCheckPointRight: {fileID: 3509755284927881724}

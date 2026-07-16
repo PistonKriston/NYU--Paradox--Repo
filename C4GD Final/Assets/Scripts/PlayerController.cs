@@ -126,8 +126,8 @@ public class PlayerController : MonoBehaviour
         {
             next_vel_y = jump_speed;
         }
-        
-            
+
+
         if (isRightWall && Input.GetKeyDown(KeyCode.Space))
         {
             next_vel_y = jump_speed * 0.7f;

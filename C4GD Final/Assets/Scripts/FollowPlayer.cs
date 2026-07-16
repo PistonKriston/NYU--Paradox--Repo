@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float lookAhead = 10f;
     void Start()
     {
         
@@ -15,7 +16,9 @@ public class FollowPlayer : MonoBehaviour
     {
         if (PlayerController.instance != null)
         {
-            transform.position = new Vector3(PlayerController.instance.transform.position.x, PlayerController.instance.transform.position.y, transform.position.z);
+            transform.position = new Vector3(PlayerController.instance.transform.position.x  + lookAhead, 
+                PlayerController.instance.transform.position.y, 
+                transform.position.z);
         }
     }
 }
