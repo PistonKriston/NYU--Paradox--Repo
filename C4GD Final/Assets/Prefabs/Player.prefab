@@ -261,6 +261,9 @@ MonoBehaviour:
   inPast: 0
   isGroundedEnemy: 0
   distanceBetweenLevels: 100
+  bothLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1799477024904589250
 MonoBehaviour:
   m_ObjectHideFlags: 0

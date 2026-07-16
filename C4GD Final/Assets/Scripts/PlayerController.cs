@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float move_speed = 7f;
     public float jump_speed = 10f;
     public float max_speed = 6f;
+    public float wallJumpSpeed = 1200f;
 
     public Transform GroundCheckPoint;
     public Transform WallCheckPointLeft;
@@ -133,7 +134,7 @@ public class PlayerController : MonoBehaviour
             if (facingRight==true)
             {
                 transform.position = new Vector2(transform.position.x - 0.1f, transform.position.y);
-                rb2d.AddForce(transform.right * -600f);
+                rb2d.AddForce(transform.right * -wallJumpSpeed);
                 transform.localScale = new Vector3(-1, 1, 1);
                 facingRight = false;
 
@@ -141,7 +142,7 @@ public class PlayerController : MonoBehaviour
             else if (facingRight!=true)
             {
                 transform.position = new Vector2(transform.position.x + 0.1f, transform.position.y);
-                rb2d.AddForce(transform.right * 600f);
+                rb2d.AddForce(transform.right * wallJumpSpeed);
                 transform.localScale = new Vector3(1, 1, 1);
                 facingRight = true;
             }
@@ -165,10 +166,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Q) && saveTimer >= 0 && saveTimer < 2)
         {
             saveTimer += Time.deltaTime;
-            print(saveTimer);
         }
         if (saveTimer >= 2)
         {
+            if (GameObject.FindGameObjectWithTag("SAVE") != null)
+            {
+                Destroy(GameObject.FindGameObjectWithTag("SAVE"));
+            }
             Instantiate(savePoint, transform.position, Quaternion.identity);
             GameManager.instance.SaveGame();
             saveTimer = -1;
