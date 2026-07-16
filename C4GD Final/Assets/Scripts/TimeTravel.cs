@@ -37,7 +37,6 @@ public class TimeTravel : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             bool isGrounded = checkForGround();
-            print(isGrounded);
             if (inPast)
             {
                 if (isGroundedEnemy)
