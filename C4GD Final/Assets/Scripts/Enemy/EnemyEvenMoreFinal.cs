@@ -141,6 +141,7 @@ public class EnemyEvenMoreFinal : MonoBehaviour
         {
             // Grounded: only horizontal movement, preserve current vertical velocity
             desiredVelocity = new Vector2(facing * speed, rb.velocity.y);
+       
         }
     }
 

@@ -101,8 +101,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 2166592616334440801}
     m_Modifications:
     - target: {fileID: 556377631988389946, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 556377631988389946, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989808183462465458, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5457726
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989808183462465458, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5063334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989808183462465458, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.009403229
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989808183462465458, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.011754036
       objectReference: {fileID: 0}
     - target: {fileID: 4829374448242403910, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_Name
@@ -110,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4829374448242403910, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5062737619640513911, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: speed
@@ -135,6 +155,38 @@ PrefabInstance:
     - target: {fileID: 6511238019060668112, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_Offset.y
       value: 0.04904163
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824252382120727454, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824252382120727454, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: flying
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824252382120727454, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: attackRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824252382120727454, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: stopDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824252382120727454, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: idleStateName
+      value: idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824252382120727454, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: attackBoolName
+      value: attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824252382120727454, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: attackTriggerName
+      value: attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824252382120727454, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
+      propertyPath: attackUsesTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9114837397773797792, guid: a26f4ff048d1f2347af6aaf7dedb2aa1, type: 3}
       propertyPath: m_LocalPosition.x
