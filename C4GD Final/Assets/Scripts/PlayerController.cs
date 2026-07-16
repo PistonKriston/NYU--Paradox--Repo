@@ -152,7 +152,7 @@ public class PlayerController : MonoBehaviour
         PlaceSave();
 
 
-        rb2d.velocity = new Vector2(next_vel_x, next_vel_y).normalized;
+        rb2d.velocity = new Vector2(next_vel_x, next_vel_y);
 
         animator.SetBool("isOnGround", isGrounded);
         animator.SetBool("isOnWall", isLeftWall || isRightWall);

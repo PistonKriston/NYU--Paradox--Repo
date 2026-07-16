@@ -8,6 +8,8 @@ public class TimeTravel : MonoBehaviour
     public bool inPast;
     public bool isGroundedEnemy;
     public float distanceBetweenLevels = 100f;
+    public LayerMask bothLayer;
+    private float groundCheckRadius = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,11 @@ public class TimeTravel : MonoBehaviour
             }
             else
             {
-                transform.Translate(Vector3.up * distanceBetweenLevels);
+                bool isGrounded = checkForGround();
+                if (isGrounded)
+                {
+                    transform.Translate(Vector3.up * distanceBetweenLevels);
+                }
             }
         }
     }
@@ -30,6 +36,8 @@ public class TimeTravel : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            bool isGrounded = checkForGround();
+            print(isGrounded);
             if (inPast)
             {
                 if (isGroundedEnemy)
@@ -38,7 +46,10 @@ public class TimeTravel : MonoBehaviour
                 }
                 else
                 {
-                    transform.Translate(Vector3.down * distanceBetweenLevels);
+                    if (!isGrounded)
+                    {
+                        transform.Translate(Vector3.down * distanceBetweenLevels);
+                    }
                 }
             }
             else
@@ -49,10 +60,17 @@ public class TimeTravel : MonoBehaviour
                 }
                 else
                 {
-                    transform.Translate(Vector3.up * distanceBetweenLevels);
+
+                    if (!isGrounded)
+                    {
+                        transform.Translate(Vector3.up * distanceBetweenLevels);
+                    }
                 }
             }
-            inPast = !inPast;
+            if (!isGrounded)
+            {
+                inPast = !inPast;
+            }
         }
 
         if (isGroundedEnemy && inPast)
@@ -62,4 +80,15 @@ public class TimeTravel : MonoBehaviour
 
     }
 
+    private bool checkForGround()
+    {
+        if (inPast)
+        {
+            return Physics2D.OverlapCircle((PlayerController.instance.transform.position + Vector3.down * distanceBetweenLevels), groundCheckRadius, bothLayer);
+        }
+        else
+        {
+            return Physics2D.OverlapCircle((PlayerController.instance.transform.position + Vector3.up * distanceBetweenLevels), groundCheckRadius, bothLayer);
+        }
+    }
 }
