@@ -152,7 +152,7 @@ public class PlayerController : MonoBehaviour
         PlaceSave();
 
 
-        rb2d.velocity = new Vector2(next_vel_x, next_vel_y);
+        rb2d.velocity = new Vector2(next_vel_x, next_vel_y).normalized;
 
         animator.SetBool("isOnGround", isGrounded);
         animator.SetBool("isOnWall", isLeftWall || isRightWall);
@@ -165,10 +165,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Q) && saveTimer >= 0 && saveTimer < 2)
         {
             saveTimer += Time.deltaTime;
-            print(saveTimer);
         }
         if (saveTimer >= 2)
         {
+            if (GameObject.FindGameObjectWithTag("SAVE") != null)
+            {
+                Destroy(GameObject.FindGameObjectWithTag("SAVE"));
+            }
             Instantiate(savePoint, transform.position, Quaternion.identity);
             GameManager.instance.SaveGame();
             saveTimer = -1;
