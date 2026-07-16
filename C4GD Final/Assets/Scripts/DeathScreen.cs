@@ -22,12 +22,12 @@ public class DeathScreen : MonoBehaviour
         
     }
 
-    private void mainMenuButton()
+    public void mainMenuButton()
     {
         SceneManager.LoadScene(2);
     }
 
-    private void respawnButton()
+    public void respawnButton()
     {
         GameManager.instance.Load();
     }
