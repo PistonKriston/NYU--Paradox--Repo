@@ -2,7 +2,7 @@
 - Project name: C4GD Final
 - Unity version: Unity 2022.3.62f3
 - Active game object:
-  - Name: GameManager
+  - Name: GreenJungle_1
   - Tag: Untagged
-  - Layer: Default
+  - Layer: Both Layer
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
