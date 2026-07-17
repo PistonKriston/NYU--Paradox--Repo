@@ -55,7 +55,7 @@ public class MainMenu : MonoBehaviour
     public void StartGameButton()
     {
         
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Level _1_Map");
 
     }
      public void ControlsGameButton()

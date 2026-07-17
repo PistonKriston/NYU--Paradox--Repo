@@ -1,40 +1,47 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LavaDamager : MonoBehaviour
 {
-    public float ignore_timer;
+    public float ignore_timer = 0f;
     public GameObject Player;
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.Log($"[Lava] OnTriggerStay2D with '{collision.gameObject.name}' (tag='{collision.tag}')");
 
-    }
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log($"[Lava] Player detected. ignore_timer = {ignore_timer}");
 
-    // Update is called once per frame
-    void Update()
-    {
+            if (Player == null)
+            {
+                Debug.LogError("[Lava] ERROR: Player reference is NULL!");
+                return;
+            }
 
+            Health hp = Player.GetComponent<Health>();
+            if (hp == null)
+            {
+                Debug.LogError("[Lava] ERROR: Player has NO Health component!");
+                return;
+            }
+
+            if (ignore_timer <= 0f)
+            {
+                Debug.Log("[Lava] Damaging player for 1 HP.");
+                hp.currentHP -= 1;
+                ignore_timer = 0.5f;
+            }
+            else
+            {
+                ignore_timer -= Time.deltaTime;
+                Debug.Log($"[Lava] Cooling down... new ignore_timer = {ignore_timer}");
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (ignore_timer <= 0)
-        {
-
-            ignore_timer = 0;
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                Player.GetComponent<Health>().currentHP -= 1;
-                ignore_timer = 0.5f;
-            }
-        }
-        else
-        {
-            ignore_timer -= Time.deltaTime;
-        }
-
+        Debug.Log($"[Lava] OnTriggerEnter2D with '{collision.gameObject.name}' (tag='{collision.tag}')");
     }
 }
