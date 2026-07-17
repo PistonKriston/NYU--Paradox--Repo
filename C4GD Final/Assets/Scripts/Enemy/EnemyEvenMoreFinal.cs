@@ -54,7 +54,7 @@ public class EnemyEvenMoreFinal : MonoBehaviour
 
     private void Awake()
     {
-        combat = player.GetComponent<Combat>();
+        combat = PlayerController.instance.GetComponent<Combat>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }

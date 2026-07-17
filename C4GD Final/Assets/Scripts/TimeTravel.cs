@@ -22,11 +22,7 @@ public class TimeTravel : MonoBehaviour
             }
             else
             {
-                bool isGrounded = checkForGround();
-                if (isGrounded)
-                {
-                    transform.Translate(Vector3.up * distanceBetweenLevels);
-                }
+                transform.Translate(Vector3.up * distanceBetweenLevels);
             }
         }
     }
@@ -37,37 +33,34 @@ public class TimeTravel : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             bool isGrounded = checkForGround();
-            if (inPast)
+            if (!isGrounded)
             {
-                if (isGroundedEnemy)
+                if (inPast)
                 {
-                    gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                }
-                else
-                {
-                    if (!isGrounded)
+                    if (isGroundedEnemy)
+                    {
+                        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    }
+                    else
                     {
                         transform.Translate(Vector3.down * distanceBetweenLevels);
                     }
                 }
-            }
-            else
-            {
-                if (isGroundedEnemy)
-                {
-                    gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                }
                 else
                 {
-
-                    if (!isGrounded)
+                    if (isGroundedEnemy)
                     {
-                        transform.Translate(Vector3.up * distanceBetweenLevels);
+                        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                    }
+                    else
+                    {
+
+                        if (!isGrounded)
+                        {
+                            transform.Translate(Vector3.up * distanceBetweenLevels);
+                        }
                     }
                 }
-            }
-            if (!isGrounded)
-            {
                 inPast = !inPast;
             }
         }
