@@ -2507,7 +2507,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Save: Hold S
+  m_text: 'Save: Hold Q
 
 '
   m_isRightToLeft: 0
