@@ -29,7 +29,7 @@ public class LavaDamager : MonoBehaviour
             if (ignore_timer <= 0f)
             {
                 Debug.Log("[Lava] Damaging player for 1 HP.");
-                hp.currentHP -= 1;
+                hp.TakeDamage(1);
                 ignore_timer = 0.5f;
             }
             else
