@@ -411,6 +411,8 @@ MonoBehaviour:
   timeRemaining: 0.1
   timerIsRunning: 0
   isAttacking: 0
+  up: 0
+  down: 0
 --- !u!1 &4861453331274386165
 GameObject:
   m_ObjectHideFlags: 0
