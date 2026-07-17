@@ -6,9 +6,10 @@ public class FollowPlayer : MonoBehaviour
 {
     // Start is called before the first frame update
     public float lookAhead = 10f;
+    public float lookAheadMaxDistanceDelta = 5f;
     void Start()
     {
-        
+        transform.position = new Vector3(PlayerController.instance.transform.position.x, PlayerController.instance.transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
@@ -16,9 +17,12 @@ public class FollowPlayer : MonoBehaviour
     {
         if (PlayerController.instance != null)
         {
-            transform.position = new Vector3(PlayerController.instance.transform.position.x  + lookAhead, 
+            Vector3 targetPosition = new Vector3(PlayerController.instance.transform.position.x  + (lookAhead * PlayerController.instance.transform.localScale.x), 
                 PlayerController.instance.transform.position.y, 
                 transform.position.z);
+
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, lookAheadMaxDistanceDelta * Time.deltaTime);
+            transform.position = new Vector3(transform.position.x, PlayerController.instance.transform.position.y, transform.position.z);
         }
     }
 }

@@ -2,7 +2,7 @@
 - Project name: C4GD Final
 - Unity version: Unity 2022.3.62f3
 - Active game object:
-  - Name: CheckRightWall
-  - Tag: Untagged
+  - Name: Flying Enemy Variant (1)
+  - Tag: Enemy
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
