@@ -27,7 +27,7 @@ public class LavaDamager : MonoBehaviour
             ignore_timer = 0;
             if (collision.gameObject.CompareTag("Player"))
             {
-                Player.GetComponent<Health>().currentHP -= 5;
+                Player.GetComponent<Health>().currentHP -= 1;
                 ignore_timer = 0.5f;
             }
         }
